@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct Test2: View {
-    @StateObject private var viewModel = LoginViewModel()
+    @StateObject private var viewModel = Test2VM()
     
     var body: some View {
         VStack(spacing: 30) {
@@ -47,7 +47,7 @@ struct Test2: View {
     }
 }
 
-class LoginViewModel: ObservableObject {
+class Test2VM: ObservableObject {
     @Published var username: String = ""
     @Published var password: String = ""
     @Published var retypePassword: String = ""

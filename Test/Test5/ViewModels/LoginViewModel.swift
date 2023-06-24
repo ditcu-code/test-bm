@@ -1,5 +1,5 @@
 //
-//  LoginVM.swift
+//  LoginViewModel.swift
 //  Test
 //
 //  Created by Aditya Cahyo on 24/06/23.
@@ -7,7 +7,7 @@
 
 import Foundation
 
-class LoginVM: ObservableObject {
+class LoginViewModel: ObservableObject {
     @Published var username: String = ""
     @Published var password: String = ""
     @Published var via: String = ""
