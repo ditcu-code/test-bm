@@ -8,9 +8,8 @@
 import SwiftUI
 
 struct ContentView: View {
-    
     var body: some View {
-        Test5a()
+        LoginView()
     }
 }
 
