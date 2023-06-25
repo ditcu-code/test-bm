@@ -25,10 +25,7 @@ class APIManager {
                 switch response.result {
                 case .success(let loginResponse):
                     completion(loginResponse, nil, nil)
-                    //                case .failure(let error):
-                    //                    completion(nil, error)
                 case .failure(let error):
-                    let statusCode = response.response?.statusCode ?? 0
                     let errorDescription = self.getErrorDescription(from: response.data)
                     completion(nil, error, errorDescription)
                 }
@@ -59,13 +56,13 @@ class APIManager {
             }
     }
     
-    private func getErrorDescription(from data: Data?) async -> String? {
-        guard let data1 = data else {
+    private func getErrorDescription(from data: Data?) -> String? {
+        guard let data = data else {
             return nil
         }
         
         do {
-            let json = try JSONSerialization.jsonObject(with: data1, options: []) as? [String: Any]
+            let json = try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any]
             return json?["response_desc"] as? String
         } catch {
             print("Error parsing error response: \(error)")
