@@ -60,4 +60,8 @@ class ProductListViewModel: ObservableObject {
         }.resume()
     }
     
+    func logout() {
+        UserDefaults.standard.set(false, forKey: "isLoggedIn")
+    }
+    
 }

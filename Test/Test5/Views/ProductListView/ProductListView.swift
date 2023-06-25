@@ -54,6 +54,17 @@ struct ProductListView: View {
                 }
             }
             .navigationTitle("Products")
+            .toolbar {
+                Button {
+                    vm.logout()
+                } label: {
+                    Label("Logout", systemImage: "arrow.left.square")
+                        .foregroundColor(.pink.opacity(0.7))
+                        .font(.footnote)
+                        .labelStyle(.titleAndIcon)
+                        .accessibilityIdentifier("logoutButton")
+                }
+            }
         }
     }
 }
