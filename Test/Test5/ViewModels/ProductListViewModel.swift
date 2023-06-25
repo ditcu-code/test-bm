@@ -9,35 +9,38 @@ import Alamofire
 import SwiftUI
 
 class ProductListViewModel: ObservableObject {
-    @Published var products: [ProductResponse.Product] = []
-    @Published var itemOpened: ProductResponse.Product?
+    @Published var products: [Product] = []
     @Published var loadedImages: [Int: UIImage] = [:]
     
     @Published var loading: Bool = false
     
-    private let decoder: JSONDecoder = {
-        let decoder = JSONDecoder()
-        decoder.keyDecodingStrategy = .convertFromSnakeCase
-        return decoder
-    }()
+    private let apiManager = APIManager.shared
     
-    @MainActor
-    func fetchProducts() async {
-        self.loading = true
-
-        AF.request("https://aci-test.bmsecure.id/test/product").responseDecodable(of: ProductResponse.self, decoder: decoder) { response in
-            switch response.result {
-            case .success(let productResponse):
-                self.products = productResponse.data
+    init() {
+        if products.isEmpty {
+            fetchProducts()
+        }
+    }
+    
+    func fetchProducts() {
+        loading = true
+        
+        apiManager.fetchProducts { [weak self] products, error in
+            guard let self = self else { return }
+            
+            DispatchQueue.main.async {
                 self.loading = false
-            case .failure(let error):
-                print("Error fetching products: \(error)")
-                self.loading = false
+                
+                if let error = error {
+                    print("Error fetching products: \(error)")
+                } else if let products = products {
+                    self.products = products
+                }
             }
         }
     }
     
-    func loadImage(for product: ProductResponse.Product) {
+    func loadImage(for product: Product) {
         guard loadedImages[product.productId] == nil else {
             return // Image already loaded
         }
@@ -56,5 +59,5 @@ class ProductListViewModel: ObservableObject {
             }
         }.resume()
     }
-
+    
 }

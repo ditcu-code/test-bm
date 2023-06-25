@@ -21,6 +21,8 @@
 		0EAFDA5A2A47639100008047 /* URLImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EAFDA592A47639100008047 /* URLImage.swift */; };
 		0EAFDA5D2A47649D00008047 /* ProductModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EAFDA5C2A47649D00008047 /* ProductModel.swift */; };
 		0EAFDA602A4764F200008047 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EAFDA5F2A4764F200008047 /* Extensions.swift */; };
+		0EAFDA632A480E3200008047 /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EAFDA622A480E3200008047 /* APIManager.swift */; };
+		0EAFDA652A48162100008047 /* ProductDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EAFDA642A48162100008047 /* ProductDetailViewModel.swift */; };
 		6017C51F28B61E0B004B633C /* Test3.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6017C51E28B61E0B004B633C /* Test3.swift */; };
 		6041B32428B4A56300E32C4C /* TestApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6041B32328B4A56300E32C4C /* TestApp.swift */; };
 		6041B32628B4A56300E32C4C /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6041B32528B4A56300E32C4C /* ContentView.swift */; };
@@ -44,6 +46,8 @@
 		0EAFDA592A47639100008047 /* URLImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLImage.swift; sourceTree = "<group>"; };
 		0EAFDA5C2A47649D00008047 /* ProductModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductModel.swift; sourceTree = "<group>"; };
 		0EAFDA5F2A4764F200008047 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		0EAFDA622A480E3200008047 /* APIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
+		0EAFDA642A48162100008047 /* ProductDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailViewModel.swift; sourceTree = "<group>"; };
 		6017C51E28B61E0B004B633C /* Test3.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Test3.swift; sourceTree = "<group>"; };
 		6041B32028B4A56300E32C4C /* Test.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Test.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6041B32328B4A56300E32C4C /* TestApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestApp.swift; sourceTree = "<group>"; };
@@ -100,6 +104,7 @@
 			children = (
 				0EAFDA4A2A471B6C00008047 /* LoginViewModel.swift */,
 				0EAFDA572A47635600008047 /* ProductListViewModel.swift */,
+				0EAFDA642A48162100008047 /* ProductDetailViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -142,6 +147,14 @@
 				0EAFDA5F2A4764F200008047 /* Extensions.swift */,
 			);
 			path = Utils;
+			sourceTree = "<group>";
+		};
+		0EAFDA612A480E2300008047 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				0EAFDA622A480E3200008047 /* APIManager.swift */,
+			);
+			path = Networking;
 			sourceTree = "<group>";
 		};
 		6017C52028B6352B004B633C /* Test1 */ = {
@@ -213,10 +226,11 @@
 		6086ACBE28BC590100541993 /* Test5 */ = {
 			isa = PBXGroup;
 			children = (
-				0EAFDA5E2A4764E400008047 /* Utils */,
 				0EAFDA5B2A47648D00008047 /* Models */,
-				0EAFDA492A471B4200008047 /* ViewModels */,
 				0EAFDA412A47193D00008047 /* Views */,
+				0EAFDA492A471B4200008047 /* ViewModels */,
+				0EAFDA612A480E2300008047 /* Networking */,
+				0EAFDA5E2A4764E400008047 /* Utils */,
 			);
 			path = Test5;
 			sourceTree = "<group>";
@@ -306,7 +320,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				0EAFDA4B2A471B6C00008047 /* LoginViewModel.swift in Sources */,
+				0EAFDA632A480E3200008047 /* APIManager.swift in Sources */,
 				0EAFDA602A4764F200008047 /* Extensions.swift in Sources */,
+				0EAFDA652A48162100008047 /* ProductDetailViewModel.swift in Sources */,
 				0EAFDA532A474B8A00008047 /* ProductDetailView.swift in Sources */,
 				6017C51F28B61E0B004B633C /* Test3.swift in Sources */,
 				6086ACC028BC593D00541993 /* LoginView.swift in Sources */,

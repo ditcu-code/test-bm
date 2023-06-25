@@ -10,26 +10,37 @@ import SwiftUI
 // TODO: Detail Product Screen
 
 struct ProductDetailView: View {
-    let widthImage = UIScreen.main.bounds.width - 20
+    @StateObject private var vm = ProductDetailViewModel()
+    
+    let productId: Int
+    let productName: String
     
     var body: some View {
         VStack(alignment: .leading) {
-            Image("nasi-goreng")
-                .resizable()
-                .scaledToFill()
-                .frame(width: widthImage, height: widthImage)
-                .clipShape(RoundedRectangle(cornerRadius: 15))
-            VStack(alignment: .leading, spacing: 10) {
-                Text("Paket Kenyang 1").font(.headline)
-                Text("Nasi Goreng Spesial + Es Teh").font(.caption)
-                Text("28.000").font(.caption).bold()
-            }.padding(.top)
-        }.padding()
+            if let item = vm.product {
+                URLImage(
+                    urlString: item.productImage,
+                    width: UIScreen.main.bounds.width - 20, height: nil
+                )
+                VStack(alignment: .leading, spacing: 10) {
+                    Text(item.productDesc).font(.caption)
+                    Text(item.productPrice.formatIDR()).font(.caption).bold()
+                }.padding(.top)
+                Spacer()
+            }
+        }
+        .onAppear {
+            if vm.product == nil {
+                vm.fetchProductDetail(id: productId)
+            }
+        }
+        .navigationTitle(productName)
+        .padding()
     }
 }
 
 struct ProductDetailView_Previews: PreviewProvider {
     static var previews: some View {
-        ProductDetailView()
+        ProductDetailView(productId: 1, productName: "Ayam")
     }
 }

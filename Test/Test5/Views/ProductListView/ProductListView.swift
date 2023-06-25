@@ -19,29 +19,39 @@ struct ProductListView: View {
                     CircularLoading()
                 } else {
                     List(vm.products) { item in
-                        HStack {
-                            VStack(alignment: .leading, spacing: 12) {
-                                Text(item.productName).font(.headline)
-                                Text(item.productDesc).font(.caption)
-                                Text(item.productPrice.formatIDR()).font(.caption).bold()
-                            }
-                            
-                            Spacer()
-                            
-                            URLImage(urlString: item.productImage, imageSize: 80)
-                                .onAppear {
+                        NavigationLink {
+                            ProductDetailView(productId: item.id, productName: item.productName)
+                        } label: {
+                            HStack {
+                                VStack(alignment: .leading, spacing: 12) {
+                                    Text(item.productName).font(.headline)
+                                    Text(item.productDesc).font(.caption)
+                                    Text(item.productPrice.formatIDR()).font(.caption).bold()
+                                }.onAppear {
                                     vm.loadImage(for: item)
                                 }
-                        }.padding(.vertical, 10)
+                                
+                                Spacer()
+                                
+                                if let image = vm.loadedImages[item.id] {
+                                    Image(uiImage: image)
+                                        .resizable()
+                                        .scaledToFill()
+                                        .frame(width: 80, height: 80)
+                                        .clipShape(RoundedRectangle(cornerRadius: 15))
+                                } else {
+                                    Image("placeholder-food")
+                                        .resizable()
+                                        .scaledToFill()
+                                        .frame(width: 80, height: 80)
+                                        .clipShape(RoundedRectangle(cornerRadius: 15))
+                                }
+                            }
+                            .padding(.vertical, 10)
+                        }
                     }
                     .listStyle(.plain)
                 }
-            }
-            .task {
-                await vm.fetchProducts()
-            }
-            .sheet(item: $vm.itemOpened) { item in
-                ProductDetailView()
             }
             .navigationTitle("Products")
         }
