@@ -23,6 +23,7 @@
 		0EAFDA602A4764F200008047 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EAFDA5F2A4764F200008047 /* Extensions.swift */; };
 		0EAFDA632A480E3200008047 /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EAFDA622A480E3200008047 /* APIManager.swift */; };
 		0EAFDA652A48162100008047 /* ProductDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EAFDA642A48162100008047 /* ProductDetailViewModel.swift */; };
+		0EAFDA672A481F7300008047 /* LoginModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EAFDA662A481F7300008047 /* LoginModel.swift */; };
 		6017C51F28B61E0B004B633C /* Test3.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6017C51E28B61E0B004B633C /* Test3.swift */; };
 		6041B32428B4A56300E32C4C /* TestApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6041B32328B4A56300E32C4C /* TestApp.swift */; };
 		6041B32628B4A56300E32C4C /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6041B32528B4A56300E32C4C /* ContentView.swift */; };
@@ -48,6 +49,7 @@
 		0EAFDA5F2A4764F200008047 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		0EAFDA622A480E3200008047 /* APIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
 		0EAFDA642A48162100008047 /* ProductDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailViewModel.swift; sourceTree = "<group>"; };
+		0EAFDA662A481F7300008047 /* LoginModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginModel.swift; sourceTree = "<group>"; };
 		6017C51E28B61E0B004B633C /* Test3.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Test3.swift; sourceTree = "<group>"; };
 		6041B32028B4A56300E32C4C /* Test.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Test.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6041B32328B4A56300E32C4C /* TestApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestApp.swift; sourceTree = "<group>"; };
@@ -137,6 +139,7 @@
 			isa = PBXGroup;
 			children = (
 				0EAFDA5C2A47649D00008047 /* ProductModel.swift */,
+				0EAFDA662A481F7300008047 /* LoginModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -320,6 +323,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0EAFDA4B2A471B6C00008047 /* LoginViewModel.swift in Sources */,
+				0EAFDA672A481F7300008047 /* LoginModel.swift in Sources */,
 				0EAFDA632A480E3200008047 /* APIManager.swift in Sources */,
 				0EAFDA602A4764F200008047 /* Extensions.swift in Sources */,
 				0EAFDA652A48162100008047 /* ProductDetailViewModel.swift in Sources */,
