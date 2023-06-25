@@ -8,8 +8,14 @@
 import SwiftUI
 
 struct ContentView: View {
+    @AppStorage("isLoggedIn") var isLoggedIn: Bool = false
+    
     var body: some View {
-        ProductListView()
+        if isLoggedIn {
+            ProductListView()
+        } else {
+            LoginView()
+        }
     }
 }
 
