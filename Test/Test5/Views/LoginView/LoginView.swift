@@ -53,7 +53,7 @@ struct LoginView: View {
             }
             
             Button {
-                
+                vm.login()
             } label: {
                 Spacer()
                 if vm.loading {
@@ -67,7 +67,9 @@ struct LoginView: View {
             .buttonStyle(.borderedProminent)
             .accessibilityIdentifier("loginButton")
             
-        }.padding()
+        }
+        .padding()
+        .animation(.default, value: vm.errorMessage)
         
     }
 }
